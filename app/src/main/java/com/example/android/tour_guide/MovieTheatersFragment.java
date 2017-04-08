@@ -32,13 +32,15 @@ public class MovieTheatersFragment extends Fragment {
 
         RecyclerView placesList = (RecyclerView) rootView.findViewById(R.id.placesList);
 
-        // Populate list of movie theatre's around Chicago
-        movieTheaters.add(new Location(getResources(), R.drawable.a_wrinkle_in_time, getString(R.string.lifeline_theatre_location), getString(R.string.movie_theatre_1)));
-        movieTheaters.add(new Location(getResources(), R.drawable.hamilton, getString(R.string.the_privatebank_theatre_location), getString(R.string.movie_theatre_2)));
-        movieTheaters.add(new Location(getResources(), R.drawable.music_box_theatre, getString(R.string.wrigleyville_location), getString(R.string.movie_theatre_3)));
-        movieTheaters.add(new Location(getResources(), R.drawable.spamilton, getString(R.string.lincoln_park_location), getString(R.string.movie_theatre_4)));
-        movieTheaters.add(new Location(getResources(), R.drawable.the_resistible_rise_of_arturo_ui, getString(R.string.trap_door_theatre_location), getString(R.string.movie_theatre_5)));
-        movieTheaters.add(new Location(getResources(), R.drawable.the_wiz, getString(R.string.theatre_wit_location), getString(R.string.movie_theatre_6)));
+        // Populate list of movie theaters around Chicago using setters to prevent recycler view
+        // duplicating views which happened earlier when I used add method
+        movieTheaters.set(0, new Location(getResources(), R.drawable.a_wrinkle_in_time, getString(R.string.lifeline_theatre_location), getString(R.string.movie_theatre_1)));
+        movieTheaters.set(1, new Location(getResources(), R.drawable.hamilton, getString(R.string.the_privatebank_theatre_location), getString(R.string.movie_theatre_2)));
+        movieTheaters.set(2, new Location(getResources(), R.drawable.music_box_theatre, getString(R.string.wrigleyville_location), getString(R.string.movie_theatre_3)));
+        movieTheaters.set(3, new Location(getResources(), R.drawable.spamilton, getString(R.string.lincoln_park_location), getString(R.string.movie_theatre_4)));
+        movieTheaters.set(4, new Location(getResources(), R.drawable.the_resistible_rise_of_arturo_ui, getString(R.string.trap_door_theatre_location), getString(R.string.movie_theatre_5)));
+        movieTheaters.set(5, new Location(getResources(), R.drawable.the_wiz, getString(R.string.theatre_wit_location), getString(R.string.movie_theatre_6)));
+
 
         // Pass all movie theaters data and context to adapter
         LocationAdapter placesAdapter = new LocationAdapter(movieTheaters, getContext());
