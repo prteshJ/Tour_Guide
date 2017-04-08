@@ -40,6 +40,17 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationHolder> {
     public int getItemCount() {
         return mLocationList.size();
     }
+    
+    // Added below methods to prevent recycler view from duplcating items
+    @Override
+    public long getItemId(int position) {
+        return super.getItemId(position);
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
 
 }
 
