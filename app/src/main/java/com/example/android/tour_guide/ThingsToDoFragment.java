@@ -17,7 +17,6 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class ThingsToDoFragment extends Fragment {
-    ArrayList<Location> things_to_do = new ArrayList<>(); // Contains all things to do
 
     public ThingsToDoFragment() {
         // Required empty public constructor
@@ -32,17 +31,18 @@ public class ThingsToDoFragment extends Fragment {
 
         RecyclerView placesList = (RecyclerView) rootView.findViewById(R.id.placesList);
 
-        // Populate list of things to do around Chicago using setters to prevent recycler view
-        // duplicating views which happened earlier when I used add method
-        things_to_do.set(0, new Location(getResources(), R.drawable.chicago_360, getString(R.string.streeterville_location), getString(R.string.things_to_do_1)));
-        things_to_do.set(1, new Location(getResources(), R.drawable.art_institute_of_chicago, getString(R.string.grant_park_location), getString(R.string.things_to_do_2)));
-        things_to_do.set(2, new Location(getResources(), R.drawable.humboldt_park, getString(R.string.humboldt_park_location), getString(R.string.things_to_do_3)));
-        things_to_do.set(3, new Location(getResources(), R.drawable.ice_skating, getString(R.string.millenium_park_location), getString(R.string.things_to_do_4)));
-        things_to_do.set(4, new Location(getResources(), R.drawable.lincoln_park_zoo, getString(R.string.lincoln_park_location), getString(R.string.things_to_do_5)));
-        things_to_do.set(5, new Location(getResources(), R.drawable.navy_pier, getString(R.string.streeterville_location), getString(R.string.things_to_do_6)));
-        things_to_do.set(6, new Location(getResources(), R.drawable.riverwalk, getString(R.string.the_privatebank_theatre_location), getString(R.string.things_to_do_7)));
-        things_to_do.set(7, new Location(getResources(), R.drawable.shedd_aquarium, getString(R.string.adlter_planetarium_location), getString(R.string.things_to_do_8)));
-        things_to_do.set(8, new Location(getResources(), R.drawable.willis_tower_skydeck, getString(R.string.the_privatebank_theatre_location), getString(R.string.things_to_do_9)));
+        // Populate list of things to do around Chicago
+        final ArrayList<Location> things_to_do = new ArrayList<>(); // Contains all things to do
+
+        things_to_do.add(0, new Location(getResources(), R.drawable.chicago_360, getString(R.string.streeterville_location), getString(R.string.things_to_do_1)));
+        things_to_do.add(1, new Location(getResources(), R.drawable.art_institute_of_chicago, getString(R.string.grant_park_location), getString(R.string.things_to_do_2)));
+        things_to_do.add(2, new Location(getResources(), R.drawable.humboldt_park, getString(R.string.humboldt_park_location), getString(R.string.things_to_do_3)));
+        things_to_do.add(3, new Location(getResources(), R.drawable.ice_skating, getString(R.string.millenium_park_location), getString(R.string.things_to_do_4)));
+        things_to_do.add(4, new Location(getResources(), R.drawable.lincoln_park_zoo, getString(R.string.lincoln_park_location), getString(R.string.things_to_do_5)));
+        things_to_do.add(5, new Location(getResources(), R.drawable.navy_pier, getString(R.string.streeterville_location), getString(R.string.things_to_do_6)));
+        things_to_do.add(6, new Location(getResources(), R.drawable.riverwalk, getString(R.string.the_privatebank_theatre_location), getString(R.string.things_to_do_7)));
+        things_to_do.add(7, new Location(getResources(), R.drawable.shedd_aquarium, getString(R.string.adlter_planetarium_location), getString(R.string.things_to_do_8)));
+        things_to_do.add(8, new Location(getResources(), R.drawable.willis_tower_skydeck, getString(R.string.the_privatebank_theatre_location), getString(R.string.things_to_do_9)));
 
         // Pass all things to do data and context to adapter
         LocationAdapter placesAdapter = new LocationAdapter(things_to_do, getContext());
