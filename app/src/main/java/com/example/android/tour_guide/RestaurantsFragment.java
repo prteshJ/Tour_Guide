@@ -17,7 +17,6 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class RestaurantsFragment extends Fragment {
-    ArrayList<Location> restaurants = new ArrayList<>(); // Contains all restaurants
 
     public RestaurantsFragment() {
         // Required empty public constructor
@@ -32,15 +31,15 @@ public class RestaurantsFragment extends Fragment {
 
         RecyclerView placesList = (RecyclerView) rootView.findViewById(R.id.placesList);
 
-        // Populate list of restaurants around Chicago using setters to prevent recycler view
-        // duplicating views which happened earlier when I used add method
-        restaurants.set(0, new Location(getResources(), R.drawable.alinea, getString(R.string.lincoln_park_location), getString(R.string.restaurant_1)));
-        restaurants.set(1, new Location(getResources(), R.drawable.elske, getString(R.string.west_loop_location), getString(R.string.restaurant_2)));
-        restaurants.set(2, new Location(getResources(), R.drawable.giant, getString(R.string.logan_square_location), getString(R.string.restaurant_3)));
-        restaurants.set(3, new Location(getResources(), R.drawable.honeys, getString(R.string.west_loop_location), getString(R.string.restaurant_4)));
-        restaurants.set(4, new Location(getResources(), R.drawable.kitsune, getString(R.string.north_center_location), getString(R.string.restaurant_5)));
-        restaurants.set(5, new Location(getResources(), R.drawable.oriole, getString(R.string.west_loop_location), getString(R.string.restaurant_6)));
-        restaurants.set(6, new Location(getResources(), R.drawable.smyth, getString(R.string.west_loop_location), getString(R.string.restaurant_7)));
+        // Populate list of restaurants around Chicago
+        final ArrayList<Location> restaurants = new ArrayList<>(); // Contains all restaurants
+        restaurants.add(0, new Location(getResources(), R.drawable.alinea, getString(R.string.lincoln_park_location), getString(R.string.restaurant_1)));
+        restaurants.add(1, new Location(getResources(), R.drawable.elske, getString(R.string.west_loop_location), getString(R.string.restaurant_2)));
+        restaurants.add(2, new Location(getResources(), R.drawable.giant, getString(R.string.logan_square_location), getString(R.string.restaurant_3)));
+        restaurants.add(3, new Location(getResources(), R.drawable.honeys, getString(R.string.west_loop_location), getString(R.string.restaurant_4)));
+        restaurants.add(4, new Location(getResources(), R.drawable.kitsune, getString(R.string.north_center_location), getString(R.string.restaurant_5)));
+        restaurants.add(5, new Location(getResources(), R.drawable.oriole, getString(R.string.west_loop_location), getString(R.string.restaurant_6)));
+        restaurants.add(6, new Location(getResources(), R.drawable.smyth, getString(R.string.west_loop_location), getString(R.string.restaurant_7)));
 
         // Pass all restaurants data and context to adapter
         LocationAdapter placesAdapter = new LocationAdapter(restaurants, getContext());
