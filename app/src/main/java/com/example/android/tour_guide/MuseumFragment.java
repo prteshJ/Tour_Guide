@@ -32,14 +32,15 @@ public class MuseumFragment extends Fragment {
 
         RecyclerView placesList = (RecyclerView) rootView.findViewById(R.id.placesList);
 
-        // Populate list of museum's around Chicago
-        museums.add(new Location(getResources(), R.drawable.adler_planetarium, getString(R.string.adlter_planetarium_location), getString(R.string.museum_1)));
-        museums.add(new Location(getResources(), R.drawable.chicago_cultural_center, getString(R.string.the_privatebank_theatre_location), getString(R.string.museum_2)));
-        museums.add(new Location(getResources(), R.drawable.chicago_history_museum, getString(R.string.lincoln_park_location), getString(R.string.museum_3)));
-        museums.add(new Location(getResources(), R.drawable.museum_of_contemporary_art, getString(R.string.streeterville_location), getString(R.string.museum_4)));
-        museums.add(new Location(getResources(), R.drawable.museum_of_science_and_industry, getString(R.string.hyde_park_location), getString(R.string.museum_5)));
-        museums.add(new Location(getResources(), R.drawable.national_museum_of_mexican_art, getString(R.string.lower_west_side_location), getString(R.string.museum_6)));
-        museums.add(new Location(getResources(), R.drawable.the_field_museum, getString(R.string.adlter_planetarium_location), getString(R.string.museum_7)));
+        // Populate list of museums around Chicago using setters to prevent recycler view
+        // duplicating views which happened earlier when I used add method
+        museums.set(0, new Location(getResources(), R.drawable.adler_planetarium, getString(R.string.adlter_planetarium_location), getString(R.string.museum_1)));
+        museums.set(1, new Location(getResources(), R.drawable.chicago_cultural_center, getString(R.string.the_privatebank_theatre_location), getString(R.string.museum_2)));
+        museums.set(2, new Location(getResources(), R.drawable.chicago_history_museum, getString(R.string.lincoln_park_location), getString(R.string.museum_3)));
+        museums.set(3, new Location(getResources(), R.drawable.museum_of_contemporary_art, getString(R.string.streeterville_location), getString(R.string.museum_4)));
+        museums.set(4, new Location(getResources(), R.drawable.museum_of_science_and_industry, getString(R.string.hyde_park_location), getString(R.string.museum_5)));
+        museums.set(5, new Location(getResources(), R.drawable.national_museum_of_mexican_art, getString(R.string.lower_west_side_location), getString(R.string.museum_6)));
+        museums.set(6, new Location(getResources(), R.drawable.the_field_museum, getString(R.string.adlter_planetarium_location), getString(R.string.museum_7)));
 
         // Pass all museums data and context to adapter
         LocationAdapter placesAdapter = new LocationAdapter(museums, getContext());
